@@ -5,7 +5,7 @@
 
 import streamlit as st
 
-UNDER_MAINTENANCE = True
+UNDER_MAINTENANCE = False
 
 if UNDER_MAINTENANCE:
     st.error("### 🚧 We are currently undergoing scheduled maintenance.")
