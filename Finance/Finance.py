@@ -14,10 +14,10 @@ def calculate_net(income_amount, debt_amount, expense_amount, savings_percentage
     j_formatted = f"${j:.2f}"
     return j_formatted
 
-def future_savings():
+def future_savings(monthly_savings):
     r = 0.07 / 12
     n = 12 * 20
-    z = round(savings_amount * (((1 + r) ** n - 1) / r))
+    z = round(monthly_savings * (((1 + r) ** n - 1) / r))
     z_formatted = f"${z:,.2f}"
     return z_formatted
 
@@ -34,7 +34,7 @@ savings_amount_formatted = f"${savings_amount:.2f}"
 
 #Call the calculate_net function and users users input as the parameters
 remainder = calculate_net(user_income_input, user_debt_input, user_expenses_input, savings_percentage_input)
-future = future_savings()
+future = future_savings(savings_amount)
 
 st.subheader(savings_amount_formatted, text_alignment="center")
 st.subheader("Saved Monthly", text_alignment="center")
