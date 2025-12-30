@@ -1,7 +1,16 @@
+
 # This program provides basic financial advice based on user input.
 # The user provides their income, debt amount, and percentage they want to save
 # Based on this information, the program outputs a calculation with a breakdown of how much is saved and what is remaining.
+
 import streamlit as st
+
+UNDER_MAINTENANCE = True
+
+if UNDER_MAINTENANCE:
+    st.error("### 🚧 We are currently undergoing scheduled maintenance.")
+    st.write("We expect to be back online shortly. Thank you for your patience.")
+    st.stop()
 
 st.title("Monthly Finance Calculator", text_alignment="center")
 
