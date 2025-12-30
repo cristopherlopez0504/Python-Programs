@@ -7,7 +7,7 @@ st.title("Monthly Finance Calculator", text_alignment="center")
 
 #Function user 4 parameters to calculate the amount of money left over
 def calculate_net(income_amount, debt_amount, expense_amount, savings_percentage_input): 
-    j = round((income_amount - debt_amount - expense_amount - (savings_percentage_input * income_amount)))
+    j = round((income_amount - debt_amount - expense_amount - (savings_percentage_input / 100 * income_amount)))
     j_formatted = f"${j:.2f}"
     return j_formatted
 
