@@ -1,12 +1,9 @@
-
-import streamlit as st
-
-st.title("Monthly Finance Calculator", text_alignment="center")
-
-
 # This program provides basic financial advice based on user input.
 # The user provides their income, debt amount, and percentage they want to save
 # Based on this information, the program outputs a calculation with a breakdown of how much is saved and what is remaining.
+import streamlit as st
+
+st.title("Monthly Finance Calculator", text_alignment="center")
 
 #Function user 4 parameters to calculate the amount of money left over
 def calculate_net(income_amount, debt_amount, expense_amount, savings_percentage_input): 
@@ -23,13 +20,13 @@ def future_savings(monthly_savings):
 
 #Collects user input
 user_income_input = st.number_input('Net Income:')
-savings_percentage_input = st.number_input(f"How much of your income do you want to save? (percent as a decmial):")
+savings_percentage_input = st.number_input(f"How much of your income do you want to save?:")
 user_expenses_input = st.number_input("\nLiving Expenses: ")
 user_debt_input = st.number_input("\nDebt: ")
 
 
 #Savings Data
-savings_amount = round(float(savings_percentage_input) * float(user_income_input))
+savings_amount = round(float(savings_percentage_input / 100) * float(user_income_input))
 savings_amount_formatted = f"${savings_amount:.2f}"
 
 #Call the calculate_net function and users users input as the parameters
