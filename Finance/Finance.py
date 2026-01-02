@@ -37,15 +37,16 @@ def get_user_input():
 
     }
 
+user_data = get_user_input()
+
 #Savings Data
 savings_amount = round(float(user_data['savings_percentage'] / 100) * float(user_data['income']))
 savings_amount_formatted = f"${savings_amount:.2f}"
 
 #Call the calculate_net function and users users input as the parameters
-remainder = main(user_income_input, user_debt_input, user_expenses_input, savings_percentage_input)
+remainder = main(user_data['income'], user_data['debt'], user_data['expenses'], user_data['savings_percentage'])
 future = future_savings(savings_amount)
 
-user_data = get_user_input()
 
 st.subheader(savings_amount_formatted, text_alignment="center")
 st.subheader("Saved Monthly", text_alignment="center")
