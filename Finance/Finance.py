@@ -12,10 +12,9 @@ if UNDER_MAINTENANCE:
     st.write("We expect to be back online shortly. Thank you for your patience.")
     st.stop()
 
-st.title("Monthly Finance Calculator", text_alignment="center")
-
 #Function user 4 parameters to calculate the amount of money left over
-def calculate_net(income_amount, debt_amount, expense_amount, savings_percentage_input): 
+def main(income_amount, debt_amount, expense_amount, savings_percentage_input):
+    st.title("Monthly Finance Calculator", text_alignment="center") 
     j = round((income_amount - debt_amount - expense_amount - (savings_percentage_input / 100 * income_amount)))
     j_formatted = f"${j:.2f}"
     return j_formatted
@@ -27,20 +26,26 @@ def future_savings(monthly_savings):
     z_formatted = f"${z:,.2f}"
     return z_formatted
 
-#Collects user input
-user_income_input = st.number_input('Net Income:')
-savings_percentage_input = st.number_input(f"How much of your income do you want to save?:")
-user_expenses_input = st.number_input("\nLiving Expenses: ")
-user_debt_input = st.number_input("\nDebt: ")
+#Collects user input and stores values in a dictionary
+def get_user_input():
+    return {
+    
+    'income' : st.number_input("Net Income:"),
+    'savings_percentage' : st.number_input("How much of your income do you want to save?:"),
+    'expenses' : st.number_input("Living Expenses: "),
+    'debt' : st.number_input("Debt: ")
 
+    }
 
 #Savings Data
-savings_amount = round(float(savings_percentage_input / 100) * float(user_income_input))
+savings_amount = round(float(user_data['savings_percentage'] / 100) * float(user_data['income']))
 savings_amount_formatted = f"${savings_amount:.2f}"
 
 #Call the calculate_net function and users users input as the parameters
-remainder = calculate_net(user_income_input, user_debt_input, user_expenses_input, savings_percentage_input)
+remainder = main(user_income_input, user_debt_input, user_expenses_input, savings_percentage_input)
 future = future_savings(savings_amount)
+
+user_data = get_user_input()
 
 st.subheader(savings_amount_formatted, text_alignment="center")
 st.subheader("Saved Monthly", text_alignment="center")
