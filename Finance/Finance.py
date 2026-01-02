@@ -32,7 +32,8 @@ def get_user_input():
     }
 
 def main():
-
+    st.title("Monthly Finance Calculator", text_alignment="center")
+    
     if UNDER_MAINTENANCE:
         st.error("### 🚧 We are currently undergoing scheduled maintenance.")
         st.write("We expect to be back online shortly. Thank you for your patience.")
@@ -48,7 +49,7 @@ def main():
     remainder = calculate_remainder(user_data['income'], user_data['debt'], user_data['expenses'], user_data['savings_percentage'])
     future = calculate_future_savings(savings_amount)
 
-    st.title("Monthly Finance Calculator", text_alignment="center") 
+     
     st.subheader(savings_amount_formatted, text_alignment="center")
     st.subheader("Saved Monthly", text_alignment="center")
     st.write(" ")
