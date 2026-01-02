@@ -24,10 +24,10 @@ def calculate_future_savings(monthly_savings):
 def get_user_input():
     return {
     
-    'income' : st.number_input("Net Income:"),
-    'savings_percentage' : st.number_input("How much of your income do you want to save?:"),
-    'expenses' : st.number_input("Living Expenses: "),
-    'debt' : st.number_input("Debt: ")
+    'income' : st.number_input("Monthly Net Income:"),
+    'savings_percentage' : st.number_input("What percentage of your income do you want to save Monthly?: (as a whole number to express a percentage)"),
+    'expenses' : st.number_input("Monthyl Living Expenses: "),
+    'debt' : st.number_input("Monthly Debt Payments: ")
 
     }
 
