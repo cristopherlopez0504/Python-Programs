@@ -26,7 +26,7 @@ def get_user_input():
     
     'income' : st.number_input("Monthly Net Income:"),
     'savings_percentage' : st.number_input("What percentage of your income do you want to save Monthly?: (as a whole number to express a percentage)"),
-    'expenses' : st.number_input("Monthyl Living Expenses: "),
+    'expenses' : st.number_input("Monthly Living Expenses: "),
     'debt' : st.number_input("Monthly Debt Payments: ")
 
     }
